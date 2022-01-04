@@ -10,7 +10,6 @@ struct EventQuery {
     std::string category;
     time_t start;
     time_t end;
-
 };
 
 #endif
