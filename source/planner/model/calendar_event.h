@@ -5,6 +5,12 @@
 
 #include <string>
 
+#include "event_compare_key.h"
+
+#define EVENT_MAX_NAME_LENGTH 32
+#define EVENT_MIN_PRIORITY 1
+#define EVENT_MAX_PRIORITY 10
+
 class CalendarEvent {
     // Immutable container that stores the event data and checks validity.
     private:
@@ -18,15 +24,16 @@ class CalendarEvent {
         CalendarEvent(std::string name, std::string category, int priority, time_t start,
             time_t end, bool done);
 
-        bool check_valid();
-        double get_time_remaining(time_t from);
+        bool CompareGreater(CalendarEvent compared, EventCompareKey compare_on);
+        bool CheckValid();
+        double GetTimeRemaining(time_t from);
         // getters
-        std::string get_category();
-        std::string get_name();
-        int get_priority();
-        time_t get_start();
-        time_t get_end();
-        bool get_done();
+        std::string GetCategory();
+        std::string GetName();
+        int GetPriority();
+        time_t GetStart();
+        time_t GetEnd();
+        bool GetDone();
 };
 
 #endif
