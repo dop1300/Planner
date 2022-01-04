@@ -5,7 +5,7 @@
 
 #include <string>
 
-#include "event_compare_key.h"
+#include "event_compare_key.hpp"
 
 #define EVENT_MAX_NAME_LENGTH 32
 #define EVENT_MIN_PRIORITY 1
