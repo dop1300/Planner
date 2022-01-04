@@ -1,4 +1,5 @@
 #include "calendar_event.hpp"
+#include "event_compare_key.h"
 
 CalendarEvent::CalendarEvent(std::string name, std::string category, int priority, 
         time_t start, time_t end, bool done) {
@@ -10,6 +11,12 @@ CalendarEvent::CalendarEvent(std::string name, std::string category, int priorit
     done_ = done;
 }
 
+bool CalendarEvent::CompareGreater(CalendarEvent compared, EventCompareKey compare_on) {
+    if (compare_on == EventCompareKey::kStart)
+        return start_ > compared.GetStart();
+    if (compare_on == EventCompareKey::kEnd)
+        return end_ > compared.GetEnd();
+}
 
 bool CalendarEvent::CheckValid() {
     int name_length = name_.length();

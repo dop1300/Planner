@@ -5,6 +5,8 @@
 
 #include <string>
 
+#include "event_compare_key.h"
+
 #define EVENT_MAX_NAME_LENGTH 32
 #define EVENT_MIN_PRIORITY 1
 #define EVENT_MAX_PRIORITY 10
@@ -22,7 +24,7 @@ class CalendarEvent {
         CalendarEvent(std::string name, std::string category, int priority, time_t start,
             time_t end, bool done);
 
-        bool CompareGreater(CalendarEvent compared, EventSortKey compare_on);
+        bool CompareGreater(CalendarEvent compared, EventCompareKey compare_on);
         bool CheckValid();
         double GetTimeRemaining(time_t from);
         // getters
