@@ -6,9 +6,16 @@
 #include "../model/calendar_query.hpp"
 #include "../model/calendar_event.hpp"
 
+// Used to report the result of modifying the data:
+// kInvalid: the event was invalid and could not be added.
+// kOverlap: the event already exists in the data.
+// kFailure: there was some error adding the data (database reverted by ACID properties)
+// kSuccess: the event was added to the data.
 enum ModificationResult {kInvalid, kOverlap, kFailure, kSuccess};
 
 class EventManager {
+    // Abstract class that abstracts the database/storage querying from the rest
+    // of the program. Used for modifying and querying the database.
     protected:
         // For the time values in the query:
         // If the time conditions are present, a condition for
