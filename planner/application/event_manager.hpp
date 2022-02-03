@@ -13,6 +13,8 @@
 // kSuccess: the event was added to the data.
 enum ModificationResult {kInvalid, kOverlap, kFailure, kSuccess};
 
+
+
 class EventManager {
     // Abstract class that abstracts the database/storage querying from the rest
     // of the program. Used for modifying and querying the database.
